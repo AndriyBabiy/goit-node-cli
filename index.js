@@ -16,7 +16,6 @@ program.parse();
 
 const options = program.opts();
 
-// TODO: рефакторити
 async function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
@@ -28,12 +27,10 @@ async function invokeAction({ action, id, name, email, phone }) {
       return console.log(contactOne);
 
     case "add":
-      // ... name email phone
       const newContact = await addContact(name, email, phone);
       return console.log(newContact);
 
     case "remove":
-      // ... id
       const removedContact = await removeContact(id);
       return console.log(removedContact);
 
@@ -43,12 +40,3 @@ async function invokeAction({ action, id, name, email, phone }) {
 }
 
 invokeAction(options);
-// invokeAction({ action: "list" });
-// invokeAction({ action: "get", id: "AeHIrLTr6JkxGE6SN-0Rw" });
-// invokeAction({
-//   action: "add",
-//   name: "Andriy Babiy",
-//   email: "me@andriybabiy.com",
-//   phone: "012 345 6789",
-// });
-// invokeAction({ action: "remove", id: "JD8MONpcufiM7B8XG0TUd" });
